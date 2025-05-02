@@ -24,6 +24,9 @@ export class CreateAdminDto {
   @ApiProperty()
   @IsString()
   img: string;
+  @ApiProperty({ example: 'ADMIN' })
+  @IsString()
+  role: string;
 }
 export enum AdminRole {
   ADMIN = 'ADMIN',
