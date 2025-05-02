@@ -16,6 +16,7 @@ import { UpdateProductDto } from './dto/update-product.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
 import { ApiQuery } from '@nestjs/swagger';
 import { StatusType, Type } from '@prisma/client';
+import { ViewGuard } from 'src/auth/view.guard';
 
 @Controller('product')
 export class ProductController {
@@ -62,6 +63,7 @@ export class ProductController {
     });
   }
   @Get(':id')
+  @UseGuards(ViewGuard)
   findOne(@Param('id') id: string) {
     return this.productService.findOne(id);
   }

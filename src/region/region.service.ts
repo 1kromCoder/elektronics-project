@@ -42,7 +42,7 @@ export class RegionService {
       },
       skip,
       take: limit,
-      include: { users: true },
+      // include: { users: true },
     });
 
     const total = await this.prisma.region.count({ where });
@@ -60,7 +60,7 @@ export class RegionService {
   async findOne(id: string) {
     return this.prisma.region.findUnique({
       where: { id },
-      include: { users: true },
+      // include: { users: true },
     });
   }
 

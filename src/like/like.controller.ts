@@ -27,35 +27,35 @@ export class LikeController {
     return this.likeService.create(createLikeDto, userId);
   }
 
-  @Get()
-  @ApiQuery({ name: 'page', required: false, type: Number, example: 1 })
-  @ApiQuery({ name: 'limit', required: false, type: Number, example: 10 })
-  @ApiQuery({ name: 'sortBy', required: false, example: 'createdAt' })
-  @ApiQuery({
-    name: 'sortOrder',
-    required: false,
-    enum: ['asc', 'desc'],
-    example: 'desc',
-  })
-  @ApiQuery({ name: 'userId', required: false })
-  @ApiQuery({ name: 'productId', required: false })
-  async findAll(
-    @Query()
-    query: {
-      page?: string;
-      limit?: string;
-      sortBy?: string;
-      sortOrder?: 'asc' | 'desc';
-      userId?: string;
-      productId?: string;
-    },
-  ) {
-    return this.likeService.findAll({
-      ...query,
-      page: query.page ? parseInt(query.page) : undefined,
-      limit: query.limit ? parseInt(query.limit) : undefined,
-    });
-  }
+  // @Get()
+  // @ApiQuery({ name: 'page', required: false, type: Number, example: 1 })
+  // @ApiQuery({ name: 'limit', required: false, type: Number, example: 10 })
+  // @ApiQuery({ name: 'sortBy', required: false, example: 'createdAt' })
+  // @ApiQuery({
+  //   name: 'sortOrder',
+  //   required: false,
+  //   enum: ['asc', 'desc'],
+  //   example: 'desc',
+  // })
+  // @ApiQuery({ name: 'userId', required: false })
+  // @ApiQuery({ name: 'productId', required: false })
+  // async findAll(
+  //   @Query()
+  //   query: {
+  //     page?: string;
+  //     limit?: string;
+  //     sortBy?: string;
+  //     sortOrder?: 'asc' | 'desc';
+  //     userId?: string;
+  //     productId?: string;
+  //   },
+  // ) {
+  //   return this.likeService.findAll({
+  //     ...query,
+  //     page: query.page ? parseInt(query.page) : undefined,
+  //     limit: query.limit ? parseInt(query.limit) : undefined,
+  //   });
+  // }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
