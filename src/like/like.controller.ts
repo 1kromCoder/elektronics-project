@@ -57,10 +57,10 @@ export class LikeController {
   //   });
   // }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.likeService.findOne(id);
-  }
+  // @Get(':id')
+  // findOne(@Param('id') id: string) {
+  //   return this.likeService.findOne(id);
+  // }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
