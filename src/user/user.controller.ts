@@ -138,7 +138,7 @@ export class UserController {
   resetPassword(@Body() dto: ResetPasswordDto) {
     return this.userService.resetPassword(dto);
   }
-  @RoleD(AdminRole.ADMIN, UserRole.USER)
+  @RoleD(AdminRole.ADMIN)
   @UseGuards(RoleGuard)
   @UseGuards(AuthGuard)
   @Post('add-Admin')
