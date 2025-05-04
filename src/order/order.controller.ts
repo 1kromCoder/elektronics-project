@@ -20,11 +20,11 @@ import { RoleD } from 'src/user/decoration/user.decoration';
 import { UserRole } from '@prisma/client';
 
 @Controller('order')
+@UseGuards(AuthGuard)
 export class OrderController {
   constructor(private readonly orderService: OrderService) {}
 
   @Post()
-  @UseGuards(AuthGuard)
   create(@Body() createOrderDto: CreateOrderDto, @Req() req) {
     let userId = req['user-id'];
     return this.orderService.create(createOrderDto, userId);
@@ -64,10 +64,10 @@ export class OrderController {
     return this.orderService.findOne(id);
   }
 
-  @Patch('/:id')
-  update(@Param('id') id: string, @Body() updateOrderDto: UpdateOrderDto) {
-    return this.orderService.update(id, updateOrderDto);
-  }
+  // @Patch('/:id')
+  // update(@Param('id') id: string, @Body() updateOrderDto: UpdateOrderDto) {
+  //   return this.orderService.update(id, updateOrderDto);
+  // }
 
   @Delete('/:id')
   remove(@Param('id') id: string) {

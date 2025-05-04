@@ -12,7 +12,7 @@ export class CreateAdminDto {
   @ApiProperty()
   @IsString()
   password: string;
-  @ApiProperty()
+  @ApiProperty({example:"exaple@gmail.com"})
   @IsEmail()
   email: string;
   @ApiProperty()
